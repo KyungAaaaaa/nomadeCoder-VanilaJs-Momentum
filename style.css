@@ -46,7 +46,7 @@ body > div > div {
 
 .jsGreetings {
     font-size: 50px;
-    margin: 30px 0;
+    margin-bottom: 20px ;
     color: #2c2c2c;
 }
 
@@ -61,13 +61,31 @@ body > div > div {
     margin-bottom: 20px;
     text-align: center;
 }
+.todo{
+    height: 300px;
 
+}
 ul {
     width: 400px;
-    margin: 50px auto 0 auto;
+    height: 200px;
+    overflow-y: scroll;
+    margin: 30px auto 0 auto;
     font-size: 20px;
     color: #2c2c2c;
 
+}
+ul::-webkit-scrollbar{
+    width: 8px;
+
+
+}
+ul::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #2f3542;
+}
+ul::-webkit-scrollbar-track {
+
+    background-color: #00ff0000;
 }
 
 ul > li {

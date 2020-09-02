@@ -4,7 +4,6 @@ const toDoForm = document.querySelector(".jsTodos"),
 
 const TODOS_KEY = "todos"
 let toDos = [];
-
 function loadTodos() {
     const loadedToDos = localStorage.getItem(TODOS_KEY);
     if (loadedToDos !== null) {
@@ -29,7 +28,7 @@ function saveToDoLocalStorage() {
 function handleTodoSubmit(e) {
     e.preventDefault();
     const todoText = toDoInput.value;
-    printTodos(todoText, null);
+    printTodos(todoText, "null");
     toDoInput.value = "";
 
 }
@@ -38,7 +37,7 @@ function handleToDoDeleteClick(e) {
     const targetBtn = e.target;
     const targetLi = targetBtn.parentNode;
     const deleteTodos = toDos.filter(todo => {
-        return todo.id !== parseInt(targetLi.id);
+        return todo.id !== targetLi.id;
     })
     todoList.removeChild(targetLi);
     toDos = deleteTodos;
@@ -48,6 +47,7 @@ function handleToDoDeleteClick(e) {
 function handleToDoComplete(event) {
     const className = "complete";
     const targetLi = event.target;
+
     if (targetLi.classList.contains(className)) {
         targetLi.classList.add("null");
         targetLi.classList.remove(className);
@@ -55,12 +55,15 @@ function handleToDoComplete(event) {
         targetLi.classList.remove("null");
         targetLi.classList.add(className);
     }
-    const todoObj = {
-        id       : parseInt(targetLi.parentElement.id),
+    const editTodos = toDos.filter(todo => {
+        return todo.id === targetLi.parentElement.id;
+    })
+    const todoObj2 = {
+        id       : targetLi.parentElement.id,
         todo     : targetLi.innerText,
         className: targetLi.className
     }
-    toDos.splice((parseInt(targetLi.parentElement.id) - 1), 1, todoObj)
+    toDos.splice(toDos.indexOf(editTodos[0]), 1, todoObj2)
     saveToDoLocalStorage();
 }
 
@@ -68,7 +71,7 @@ function printTodos(text, className) {
     const newTodoLi = document.createElement("li");
     const newTodoBtn = document.createElement("div");
     const newTextSpan = document.createElement("span")
-    const newID = toDos.length + 1;
+    const newID = text+toDos.length + 1;
     newTextSpan.innerText = text;
     newTextSpan.classList.add(className);
     newTodoBtn.innerText = "X";
@@ -78,7 +81,7 @@ function printTodos(text, className) {
     newTodoLi.id = newID;
     newTextSpan.addEventListener("dblclick", handleToDoComplete)
     todoList.appendChild(newTodoLi);
-    const todoObj = {
+   const todoObj = {
         id       : newID,
         todo     : text,
         className: className
