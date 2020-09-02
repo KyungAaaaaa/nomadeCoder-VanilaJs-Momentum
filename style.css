@@ -1,0 +1,143 @@
+@import "reset.css";
+
+.jsName, .jsGreetings {
+    display: none;
+}
+
+.showing {
+    display: block;
+}
+
+body > p {
+    margin: 30px;
+    cursor: pointer;
+
+}
+
+body > div {
+    margin: 100px auto;
+    height: 100%;
+    width: 100%;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+body > div > div {
+    text-align: center;
+    align-items: center;
+
+}
+
+.jsClock > h4 {
+    text-align: center;
+    font-size: 30px;
+    display: inline-block;
+    color: #2c2c2c;
+
+}
+
+.jsClock > h1 {
+    text-align: center;
+    font-size: 140px;
+    display: inline-block;
+    margin: 60px 0;
+    color: #2c2c2c;
+}
+
+.jsGreetings {
+    font-size: 50px;
+    margin: 30px 0;
+    color: #2c2c2c;
+}
+
+.jsName > input {
+    background-color: #00ff0000;
+    border: 0;
+    border-bottom: 2px solid #2c2c2c;
+    width: 400px;
+    height: 40px;
+    font-size: 40px;
+    color: #2c2c2c;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+ul {
+    width: 400px;
+    margin: 50px auto 0 auto;
+    font-size: 20px;
+    color: #2c2c2c;
+
+}
+
+ul > li {
+    list-style: none;
+    padding-top: 10px;
+    margin: 10px 0;
+    font-size: 25px;
+
+}
+
+ul > li > span {
+    display: inline-block;
+    width: 200px;
+    cursor: pointer;
+
+}
+
+ul > li > div {
+    display: inline-block;
+    margin-left: 20px;
+    background: none;
+    cursor: pointer;
+}
+
+.complete {
+    text-decoration: line-through;
+}
+
+.jsTodos > input {
+    background-color: #00ff0000;
+    border: 0;
+    border-bottom: 2px solid #2c2c2c;
+    width: 300px;
+    height: 40px;
+    font-size: 35px;
+    text-align: center;
+}
+
+.jsTodos > input:focus {
+    /*background-color: #000000;*/
+    border: 0;
+    border-bottom: 2px solid #2c2c2c;
+    width: 300px;
+    height: 40px;
+    font-size: 35px;
+}
+
+.jsWeather {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 30px;
+}
+
+
+.jsBackGround {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    animation: fadeIn 0.5s linear;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
